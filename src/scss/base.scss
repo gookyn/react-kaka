@@ -14,7 +14,6 @@ html {
     color: black;
 }
 
-
 /* 内外边距通常让各个浏览器样式的表现位置不同 */
 
 body,
@@ -186,14 +185,6 @@ sup {
 sub {
     bottom: -0.25em;
 }
-
-
-/* 让链接在 hover 状态下显示下划线 */
-
-a:hover {
-    text-decoration: underline;
-}
-
 
 /* 默认不显示下划线，保持页面简洁 */
 

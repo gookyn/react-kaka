@@ -1,0 +1,63 @@
+@import './../../scss/var.scss';
+.login-wrapper {
+    height: 100%;
+    padding: 3rem;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.logo-wrapper {
+    text-align: center;
+    .logo {
+        display: inline-block;
+        width: 6rem;
+        height: 6rem;
+        padding: 1rem;
+        border: 1px solid $border-color;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, .1);
+        border-radius: 50%;
+        overflow: hidden;
+        img {
+            width: 100%;
+        }
+    }
+    .welcome {
+        margin-top: 3rem;
+    }
+}
+
+.input-wrapper {
+    margin-top: 3rem;
+    .iconfont {
+        font-size: 3rem;
+    }
+}
+
+.pwd-input {
+    margin-top: 1rem;
+}
+
+.login-btn {
+    margin-top: 1.5rem;
+}
+
+.am-button-primary.login-btn {
+    border-radius: 25px;
+}
+
+.am-button-primary.register-btn {
+    margin-top: 1.5rem;
+    border-radius: 25px;
+    background-color: #fff;
+    color: $base-color;
+}
+
+.am-button-primary.register-btn.am-button-active {
+    background-color: #fff;
+    color: $base-color;
+}
+
+.am-toast>span {
+    position: absolute;
+    top: 35%;
+}

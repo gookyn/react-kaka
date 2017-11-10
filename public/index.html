@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
-    <!--
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+		<meta name="theme-color" content="#000000">
+		<!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    <!--
+		<link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+		<link rel="shortcut icon" href="%PUBLIC_URL%/favicon.png">
+		
+		<!--字体css font-class引用-->
+		<link rel="stylesheet" href="https://at.alicdn.com/t/font_470392_505ywp0g2lw61or.css"/>
+		<!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -19,11 +23,27 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>kaka</title>
-  </head>
-  <body>
-    <div id="root">
-    	
-    </div>
-  </body>
+		<title>kaka</title>
+		
+		<!--引入 FastClick，用于消除click移动浏览器上物理点击与事件触发之间的300毫秒延迟-->
+		<script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
+		
+		<!--引入 Promise 的 fallback 支持 (部分安卓手机不支持 Promise)-->
+		<script>
+			if('addEventListener' in document) {
+				document.addEventListener('DOMContentLoaded', function() {
+					FastClick.attach(document.body);
+				}, false);
+			}
+			if(!window.Promise) {
+				document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"' + '>' + '<' + '/' + 'script>');
+			}
+		</script>
+		
+	</head>
+
+	<body>
+		<div id="root"></div>
+	</body>
+
 </html>

@@ -1,0 +1,98 @@
+@import './var.scss';
+// 字体
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+// 全局样式
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    color: $base-color;
+}
+
+#root,
+#app,
+.main-wrapper,
+.page-wrapper {
+    height: 100%;
+}
+
+.main-wrapper {
+    position: relative;
+}
+
+// 头部 components/head.js
+.header-wrapper {
+    width: 100%;
+    height: 4rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    border-bottom: 1px solid $border-color;
+    background-color: #fff;
+    line-height: 4rem;
+    .header-l,
+    .header-r {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        line-height: 1.2;
+    }
+    .header-l {
+        left: 1rem;
+        .iconfont {
+            font-size: 2.8rem;
+        }
+    }
+    .header-r {
+        right: 1rem;
+        .iconfont {
+            font-size: 3.2rem;
+        }
+    }
+    .header-m {
+        padding: 0 6rem;
+        overflow: hidden;
+    }
+}
+
+// tab components/tab
+.tab-wrapper {
+    width: 100%;
+    height: 4rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    border-top: 1px solid $border-color;
+    background-color: #fff;
+    line-height: 4rem;
+    .tab-item {
+        display: inline-block;
+        width: 20%;
+    }
+}
+
+// 主页面
+.page-wrapper {
+    padding: 4rem 0;
+    overflow-y: auto;
+}
+
+.page {
+    min-height: 100%;
+    background-color: $bg-color;
+    padding: 0 1rem 1rem 1rem;
+}
