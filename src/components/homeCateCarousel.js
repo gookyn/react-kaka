@@ -1,19 +1,22 @@
+// 首页 - 分类导航
 import React from 'react';
-import { Carousel } from 'antd-mobile';
 
 const HomeCateCarousel = ({
 	categoryList,
+	changeCateHandle
 }) => {
 	const list = categoryList.map((item, index) => {
-		return <div className="cate-item" key={index}>
+		return <li className="cate-item" key={index} onClick={changeCateHandle.bind(null, item.categoryId)}>
 					{item.name}
-				</div>
+				</li>
 	})
 
 	return(
-		<Carousel className="home-cate-wrapper" dots={false}>
-			{list}	
-		</Carousel>
+		<div className="home-cate-wrapper">
+			<ul className="home-cate-list">
+				{list}	
+			</ul>
+		</div>
 	)
 }
 
