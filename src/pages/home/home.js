@@ -5,7 +5,7 @@ import xhr from './../../axios';
 import './home.scss';
 
 import VideoItemLarge from './../../components/videoItemLarge';
-import VideoItemMiddle from './../../components/videoItemMiddle';
+import CatePanelMiddle from './../../components/catePanelMiddle';
 import HomeCateCarousel from './../../components/homeCateCarousel';
 
 class Home extends React.Component {
@@ -13,8 +13,10 @@ class Home extends React.Component {
 		super(props);
 		this.state = {
 			contList: [],
+			hotList: [],
 			categoryList: [],
 		}
+		this.changeCateHandle = this.changeCateHandle.bind(this);
 	}
 
 	componentWillMount() {
@@ -27,7 +29,7 @@ class Home extends React.Component {
 			})
 		})
 
-		// 获取视频
+		// 获取推荐视频
 		xhr({
 			url: 'http://app.pearvideo.com/clt/jsp/v2/home.jsp',
 			options: {
@@ -38,13 +40,43 @@ class Home extends React.Component {
 				contList: res.dataList[0].contList
 			})
 		})
+
+		// 获取其他标签视频
+		this.getCategoryConts({
+			categoryId: 1
+		});
 	}
+
+	// 获取其他标签视频
+	getCategoryConts(opt) {
+		xhr({
+			url: 'http://app.pearvideo.com/clt/jsp/v2/getCategoryConts.jsp',
+			options: {
+				categoryId: opt.categoryId || 1,
+				hotPageidx: 1,
+			}
+		}).then((res) => {
+			this.setState({
+				contList: res.contList,
+				hotList: res.hotList,
+			})
+		})
+	}
+
+	// 切换分类
+	changeCateHandle(categoryId) {
+		this.getCategoryConts({
+			categoryId: categoryId
+		})
+	}
+
 	render() {
 		return(
 			<div className="page home-wrapper">
-				<HomeCateCarousel categoryList={this.state.categoryList}/>
-				<VideoItemMiddle videoList={this.state.contList}/>
 				<VideoItemLarge videoList={this.state.contList}/>
+				<HomeCateCarousel categoryList={this.state.categoryList} changeCateHandle={this.changeCateHandle}/>
+				<CatePanelMiddle videoList={this.state.hotList} panelTitle="最热"/>
+				<CatePanelMiddle videoList={this.state.contList} panelTitle="最新"/>
 			</div>
 		)
 	}
