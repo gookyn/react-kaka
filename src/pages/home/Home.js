@@ -6,7 +6,7 @@ import './home.scss';
 
 import VideoItemLarge from './../../components/videoItemLarge';
 import CatePanelMiddle from './../../components/catePanelMiddle';
-import HomeCateCarousel from './../../components/homeCateCarousel';
+import CateNav from './../../components/cateNav';
 
 class Home extends React.Component {
 	constructor(props) {
@@ -16,7 +16,6 @@ class Home extends React.Component {
 			hotList: [],
 			categoryList: [],
 		}
-		this.changeCateHandle = this.changeCateHandle.bind(this);
 	}
 
 	componentWillMount() {
@@ -65,6 +64,7 @@ class Home extends React.Component {
 
 	// 切换分类
 	changeCateHandle(categoryId) {
+//		console.log(categoryId)
 		this.getCategoryConts({
 			categoryId: categoryId
 		})
@@ -73,8 +73,7 @@ class Home extends React.Component {
 	render() {
 		return(
 			<div className="page home-wrapper">
-				<VideoItemLarge videoList={this.state.contList}/>
-				<HomeCateCarousel categoryList={this.state.categoryList} changeCateHandle={this.changeCateHandle}/>
+				<CateNav categoryList={this.state.categoryList} onClick={this.changeCateHandle.bind(this)}/>
 				<CatePanelMiddle videoList={this.state.hotList} panelTitle="最热"/>
 				<CatePanelMiddle videoList={this.state.contList} panelTitle="最新"/>
 			</div>

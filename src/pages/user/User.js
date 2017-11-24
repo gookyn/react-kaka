@@ -1,7 +1,7 @@
 // 首页
 import React from 'react';
 
-class Home extends React.Component {
+class User extends React.Component {
 	render() {
 		return (
 			<div className="page user-wrapper">
@@ -11,4 +11,4 @@ class Home extends React.Component {
 	}
 }
 
-export default Home;
+export default User;

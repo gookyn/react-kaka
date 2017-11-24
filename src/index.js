@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
 
-import App from './pages/app/app';
+import App from './pages/app/App';
 
 import './utils/rem';
 import './scss/index.scss';
