@@ -2,12 +2,12 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-import Home from './../pages/home/home';
-import Live from './../pages/live/live';
-import Shoot from './../pages/shoot/shoot';
-import Subscribe from './../pages/subscribe/subscribe';
-import User from './../pages/user/user';
-import Login from './../pages/login/login';
+import Home from './../pages/home/Home';
+import Live from './../pages/live/Live';
+import Shoot from './../pages/shoot/Shoot';
+import Subscribe from './../pages/subscribe/Subscribe';
+import User from './../pages/user/User';
+import Login from './../pages/login/Login';
 
 class Router extends React.Component {
 	render() {
